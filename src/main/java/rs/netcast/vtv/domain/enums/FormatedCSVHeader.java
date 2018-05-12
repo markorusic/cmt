@@ -1,0 +1,26 @@
+package rs.netcast.vtv.domain.enums;
+
+public enum FormatedCSVHeader {
+	TITLE,
+	REPRISE,
+	ORIGINAL_TITLE,
+	DESCRIPTION,
+	TYPE,
+	RUNTIME,
+	GENRE,
+	SCENARISTS,
+	DIRECTORS,
+	ACTORS,
+	COUNTRY,
+	YEAR,
+	SEASON,
+	EPISODE,
+	TRAILER_URL,
+	IMDB_RATING,
+	RT_RATING,
+	MC_RATING,
+	TAGS,
+	IMG_URL,
+	AGE_RESTRICTION,
+	START
+}
