@@ -53,6 +53,8 @@ public class LocationServiceImpl implements LocationService {
 
             addressDao.save(address);
 
+
+
         }
     }
 
@@ -83,22 +85,24 @@ public class LocationServiceImpl implements LocationService {
 //    }
 
 
-    public List<Address> getPickupSpot(double lon, double lat, int pageNumber, int nPerPage){
+    public List<Address> getPickupSpot(double lon, double lat, int pageNumber, int nPerPage) {
 
         Query query = new Query();
         query.addCriteria(Criteria.where("latitude").gt(0));
         query.limit(nPerPage);
         query.skip(pageNumber);
         List<Address> addresses = mongoTemplate.find(query, Address.class);
+
         return addresses;
+    }
+
+    public void removePickupSpot(){
+
+            Query query = new Query();
+            query.addCriteria(Criteria.where("latitude").gt(0));
+            mongoTemplate.remove(query, Address.class);
 
 
-//        List<String> result = addresses.stream()                // convert list to stream
-//                .filter(line -> !"".equals(line))     // we dont like mkyong
-//                .collect(Collectors.toList());
-//                .stream()
-//                .filter(line -> !"mkyong".equals(line))     // we dont like mkyong
-//                .collect(Collectors.toList());  ;
 
     }
 }

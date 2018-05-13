@@ -32,12 +32,17 @@ public class AddressApi {
         addressDao.deleteAll();
     }
 
-
     @RequestMapping(value = "/pickup-spots-{pageNumber}-{limit}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<Address> getPickupSpots(@RequestBody LocationDto locationDto,
                                                       @PathVariable int pageNumber,
                                                       @PathVariable int limit)  {
-        // System.out.println("Channel id: " + channelId);
         return locationService.getPickupSpot(locationDto.getLng(), locationDto.getLat(), pageNumber, limit);
+    }
+
+    @RequestMapping(value = "/pickup-spots", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void getPickupSpots()  {
+        // System.out.println("Channel id: " + channelId);
+        locationService.removePickupSpot();
+//        return locationService.getPickupSpot(locationDto.getLng(), locationDto.getLat(), pageNumber, limit);
     }
 }
