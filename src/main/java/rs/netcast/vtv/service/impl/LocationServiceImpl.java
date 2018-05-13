@@ -87,8 +87,16 @@ public class LocationServiceImpl implements LocationService {
 
     public List<Address> getPickupSpot(double lon, double lat, int pageNumber, int nPerPage) {
 
+
+//        int latitude = (int) Math.round(lat);
+//        int longitude = (int) Math.round(lon);
+
         Query query = new Query();
-        query.addCriteria(Criteria.where("latitude").gt(0));
+        query.addCriteria(Criteria.where("latitude").gte(lat-1));
+        query.addCriteria(Criteria.where("latitude").lte(lat+1));
+
+        query.addCriteria(Criteria.where("longitude").gte(lon-1));
+        query.addCriteria(Criteria.where("longitude").lte(lon+1));
         query.limit(nPerPage);
         query.skip(pageNumber);
         List<Address> addresses = mongoTemplate.find(query, Address.class);
