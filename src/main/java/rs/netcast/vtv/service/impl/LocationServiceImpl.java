@@ -81,4 +81,22 @@ public class LocationServiceImpl implements LocationService {
 //            address.setScorePerHour();
 //        }
 //    }
+
+
+    public List<Address> getPickupSpot(double lon, double lat){
+
+        Query query = new Query();
+        query.addCriteria(Criteria.where("latitude").gt(0));
+        List<Address> addresses = mongoTemplate.find(query, Address.class);
+        return addresses;
+
+
+//        List<String> result = addresses.stream()                // convert list to stream
+//                .filter(line -> !"".equals(line))     // we dont like mkyong
+//                .collect(Collectors.toList());
+//                .stream()
+//                .filter(line -> !"mkyong".equals(line))     // we dont like mkyong
+//                .collect(Collectors.toList());  ;
+
+    }
 }
