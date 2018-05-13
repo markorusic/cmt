@@ -90,8 +90,8 @@ public class LocationServiceImpl implements LocationService {
 //        int latitude = (int) Math.round(lat);
 //        int longitude = (int) Math.round(lon);
 
-        double minlat = lat - 0.1, maxlat = lat + 0.1;
-        double minlon = lon - 0.1, maxlon = lon + 0.1;
+        double minlat = lat - 1, maxlat = lat + 1;
+        double minlon = lon - 1, maxlon = lon + 1;
 
         Query query = new Query();
         query.addCriteria(Criteria.where("latitude").gte(minlat));
