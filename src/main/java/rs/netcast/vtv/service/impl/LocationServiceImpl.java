@@ -37,19 +37,18 @@ public class LocationServiceImpl implements LocationService {
             RestTemplate restTemplate = new RestTemplate();
 //            HttpHeaders headers = new HttpHeaders();
 //            headers.setContentType(MediaType.APPLICATION_JSON_VALUE);
-
-            String url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+            String key = "&key=" + "AIzaSyDHPnkz7R1qmZA0KnYphb8k0HEBRxMbN6U";
+            String url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + key;
             if(address.getNumber() != 0)
                 url += address.getNumber() + "+";
             String street = address.getStreet();
             url += street.replace(" ", "+");
 
             AddressResponseDto addressDto = restTemplate.postForObject(url, null, AddressResponseDto.class);
-
+            System.out.println(" " + addressDto.getGeometry().getLocation().getLat() + " " + addressDto.getGeometry().getLocation().getLng());
             address.setLatitude(addressDto.getGeometry().getLocation().getLat());
             address.setLongitude(addressDto.getGeometry().getLocation().getLng());
 
-            String key = "&key=" + "AIzaSyDHPnkz7R1qmZA0KnYphb8k0HEBRxMbN6U";
 
             addressDao.save(address);
 

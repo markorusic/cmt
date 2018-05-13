@@ -11,4 +11,6 @@ public interface LocationService {
 
     List<Address> getPickupSpot(double lon, double lat, int pageNumber, int nPerPage);
     void removePickupSpot();
+
+
 }

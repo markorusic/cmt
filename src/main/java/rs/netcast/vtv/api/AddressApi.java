@@ -41,8 +41,13 @@ public class AddressApi {
 
     @RequestMapping(value = "/pickup-spots", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void getPickupSpots()  {
-        // System.out.println("Channel id: " + channelId);
         locationService.removePickupSpot();
 //        return locationService.getPickupSpot(locationDto.getLng(), locationDto.getLat(), pageNumber, limit);
+    }
+
+
+    @RequestMapping(value = "/extend", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void extend()  {
+        locationService.extendLocationInfo();
     }
 }
