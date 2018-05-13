@@ -1,6 +1,7 @@
 package rs.netcast.vtv.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import rs.netcast.vtv.dao.AddressDao;
@@ -32,7 +33,7 @@ public class AddressApi {
     }
 
 
-    @RequestMapping(value = "/pickup-spots", method = RequestMethod.POST)
+    @RequestMapping(value = "/pickup-spots", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<Address> getPickupSpots(@RequestBody LocationDto locationDto)  {
         // System.out.println("Channel id: " + channelId);
         return locationService.getPickupSpot(locationDto.getLng(), locationDto.getLat());
