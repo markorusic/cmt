@@ -108,11 +108,8 @@ public class LocationServiceImpl implements LocationService {
 
     public void removePickupSpot(){
 
-//            Query query = new Query();
-//            query.addCriteria(Criteria.where("latitude").gt(0));
-//            mongoTemplate.remove(query, Address.class);
-
-            addressDao.deleteAll();
-
+            Query query = new Query();
+            query.addCriteria(Criteria.where("latitude").gt(0));
+            mongoTemplate.remove(query, Address.class);
     }
 }
