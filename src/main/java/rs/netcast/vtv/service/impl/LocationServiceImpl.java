@@ -94,10 +94,10 @@ public class LocationServiceImpl implements LocationService {
         double minlon = lon - 1, maxlon = lon + 1;
 
         Query query = new Query();
-        query.addCriteria(Criteria.where("latitude").gte(minlat));
+        query.addCriteria(Criteria.where("latitude").gte(0));
 //        query.addCriteria(Criteria.where("latitude").lte(maxlat));
 
-        query.addCriteria(Criteria.where("longitude").gte(minlon));
+//        query.addCriteria(Criteria.where("longitude").gte(minlon));
 //        query.addCriteria(Criteria.where("longitude").lte(maxlon));
         query.limit(nPerPage);
         query.skip(pageNumber);
