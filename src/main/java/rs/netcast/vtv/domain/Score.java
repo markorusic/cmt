@@ -9,6 +9,11 @@ public class Score {
 
 
 	public Score() {
+		total = 0;
+		first = 0;
+		high = 0;
+		prestige = 0;
+		skyline = 0;
 	}
 
 	public Score(int total, int first, int high, int prestige, int skyline) {
