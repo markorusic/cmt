@@ -6,7 +6,11 @@ public class Score {
 	private int high;
 	private int prestige;
 	private int skyline;
-	
+
+
+	public Score() {
+	}
+
 	public Score(int total, int first, int high, int prestige, int skyline) {
 		super();
 		this.total = total;

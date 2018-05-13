@@ -25,10 +25,14 @@ public class ScorePerHour {
 	private Score h22;
 	private Score h23;
 	private Score h24;
-	
+
+
+	public ScorePerHour() {
+	}
+
 	public ScorePerHour(Score h1, Score h2, Score h3, Score h4, Score h5, Score h6, Score h7, Score h8, Score h9,
-			Score h10, Score h11, Score h12, Score h13, Score h14, Score h15, Score h16, Score h17, Score h18,
-			Score h19, Score h20, Score h21, Score h22, Score h23, Score h24) {
+						Score h10, Score h11, Score h12, Score h13, Score h14, Score h15, Score h16, Score h17, Score h18,
+						Score h19, Score h20, Score h21, Score h22, Score h23, Score h24) {
 		super();
 		this.h1 = h1;
 		this.h2 = h2;
