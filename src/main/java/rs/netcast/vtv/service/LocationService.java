@@ -9,5 +9,5 @@ public interface LocationService {
 
     void extendLocationInfo();
 
-    List<Address> getPickupSpot(double lon, double lat);
+    List<Address> getPickupSpot(double lon, double lat, int pageNumber, int nPerPage);
 }

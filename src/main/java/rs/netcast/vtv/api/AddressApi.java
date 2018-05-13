@@ -33,9 +33,11 @@ public class AddressApi {
     }
 
 
-    @RequestMapping(value = "/pickup-spots", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody List<Address> getPickupSpots(@RequestBody LocationDto locationDto)  {
+    @RequestMapping(value = "/pickup-spots-{pageNumber}-{limit}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody List<Address> getPickupSpots(@RequestBody LocationDto locationDto,
+                                                      @PathVariable int pageNumber,
+                                                      @PathVariable int limit)  {
         // System.out.println("Channel id: " + channelId);
-        return locationService.getPickupSpot(locationDto.getLng(), locationDto.getLat());
+        return locationService.getPickupSpot(locationDto.getLng(), locationDto.getLat(), pageNumber, limit);
     }
 }
