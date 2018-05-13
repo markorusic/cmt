@@ -90,12 +90,15 @@ public class LocationServiceImpl implements LocationService {
 //        int latitude = (int) Math.round(lat);
 //        int longitude = (int) Math.round(lon);
 
-        Query query = new Query();
-        query.addCriteria(Criteria.where("latitude").gte(lat-0.1));
-        query.addCriteria(Criteria.where("latitude").lte(lat+0.1));
+        double minlat = lat - 0.1, maxlat = lat + 0.1;
+        double minlon = lon - 0.1, maxlon = lon + 0.1;
 
-        query.addCriteria(Criteria.where("longitude").gte(lon-0.1));
-        query.addCriteria(Criteria.where("longitude").lte(lon+0.1));
+        Query query = new Query();
+        query.addCriteria(Criteria.where("latitude").gte(minlat));
+        query.addCriteria(Criteria.where("latitude").lte(maxlat));
+
+        query.addCriteria(Criteria.where("longitude").gte(minlon));
+        query.addCriteria(Criteria.where("longitude").lte(maxlon));
         query.limit(nPerPage);
         query.skip(pageNumber);
         List<Address> addresses = mongoTemplate.find(query, Address.class);
