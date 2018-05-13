@@ -95,10 +95,10 @@ public class LocationServiceImpl implements LocationService {
 
         Query query = new Query();
         query.addCriteria(Criteria.where("latitude").gte(minlat));
-        query.addCriteria(Criteria.where("latitude").lte(maxlat));
+//        query.addCriteria(Criteria.where("latitude").lte(maxlat));
 
         query.addCriteria(Criteria.where("longitude").gte(minlon));
-        query.addCriteria(Criteria.where("longitude").lte(maxlon));
+//        query.addCriteria(Criteria.where("longitude").lte(maxlon));
         query.limit(nPerPage);
         query.skip(pageNumber);
         List<Address> addresses = mongoTemplate.find(query, Address.class);
